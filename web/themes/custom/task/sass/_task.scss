@@ -1,0 +1,307 @@
+body {
+  background-color: white;
+}
+ul {
+  list-style: none;
+}
+.region-header , .block-local-tasks-block, .block-page-title-block , .node__submitted , .node__content .field__label , .field--name-field-mobile-banner{
+  display: none;
+}
+.field--name-field-web-banner{
+  top: 0;
+  @include mquery(mobile){
+    display: none;
+  }
+}
+.field--name-field-mobile-banner{
+  @include mquery(mobile){
+    display: block;
+  }
+  img{
+    width: 100%;
+  }
+}
+
+.wrapper{
+   max-width: 1670px;
+   margin: 0 auto;
+   padding: 0 15px;
+   @include mquery(mobile){
+    max-width: 670px;
+  }
+}
+.view-header{
+  .sm-head {
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+    .heading1 {
+      font-size: 48px;
+      color: #220046;
+      display: inline-block;
+      font-family: "VoltePlay-Regular", sans-serif;
+      margin-bottom: 0;
+      @include mquery(mobile){
+        font-size: 28px;
+      }
+    }
+    .heading2 {
+      font-size: 18px;
+      color: #575757;
+      font-family: "VoltePlay-Regular", sans-serif;
+      margin-top: 8px;
+  }
+  }
+  .item-list {
+    border-bottom: 2px solid #007bff;
+    /*display: flex;
+    justify-content: center; 
+    margin: 0 auto;
+    width: 100%; 
+    max-width: 1700px; */
+    .cat-tabs {
+      /*display: flex; /* Align tabs horizontally 
+      justify-content: space-between;
+      list-style: none; /* Remove bullet points 
+      padding: 0;
+      margin: 0;*/
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+      padding-right: 60px;
+      @include mquery(mobile){
+        flex-wrap: unset;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      li {
+        /*margin-right: 20px; /* Space between tabs */
+        font-size: 28px;
+        flex: 1;
+        text-align: center;
+        padding-bottom: 3px;
+        background: 0;
+        background-size: 100% 3px;
+        padding-bottom: 0;
+        white-space: nowrap;
+        @include mquery(mobile){
+          white-space: unset;
+          font-size: 18px;
+        }
+        &:hover{
+          background-color: #f5f5f5; /* Off white */
+          border-radius: 4px;
+        }
+        &.active{
+          a {
+            font-weight: bold;
+            color: #333; 
+            position: relative;
+          }
+          &:after {
+            content: "";
+            position: absolute;
+            top: 150%; 
+            left: 50%; 
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #007bff; 
+            @include mquery(mobile){
+              top: 142% !important;
+            }
+          }
+        }
+        a {
+          /*text-decoration: none;
+          font-size: 28px;
+          color: #007bff;
+          padding: 10px 20px;
+          display: inline-block;
+          position: relative;*/
+          padding: 30px 10px 25px;
+          color: #007bff;
+          text-decoration: none;
+          &:hover {
+              color: #024c9c;
+          }
+          }
+      }
+      li:last-child {
+        margin-right: 0; /* Remove margin for the last tab */
+      }
+
+    }
+  }
+  
+  }
+
+.photos-slider-block {
+  .tab-slider-center {
+    padding: 0px 70px;
+    @include mquery(mobile){
+      padding: 0;
+    }
+
+    .slick-prev {
+      display: block !important;
+      background: url(https://qa-portal.tataplay.com/s3-api/v1/assets/others/carousel-arrowleft.svg) 0 0 no-repeat;
+      background-size: cover;
+      height: 30px;
+      width: 17px;
+      text-indent: -9999px;
+      position: absolute;
+      top: 40%;
+      left: -50px;
+      z-index: 2;
+      border: none !important;
+      cursor: pointer;
+      &.slick-disabled {
+        opacity: 0.5;
+      }
+      @include mquery(mobile){
+        display: none !important;
+      }
+    }
+    .slick-next {
+      display: block !important;
+      background: url(https://qa-portal.tataplay.com/s3-api/v1/assets/others/carousel-arrowright.svg) 0 0 no-repeat;
+      background-size: cover;
+      height: 30px;
+      width: 17px;
+      text-indent: -9999px;
+      position: absolute;
+      top: 40%;
+      right: -50px;
+      z-index: 2;
+      border: none !important;
+      cursor: pointer;
+      &.slick-disabled {
+        opacity: 0.5;
+      }
+      @include mquery(mobile){
+        display: none !important;
+      }
+    }
+    .slick-track {
+      display: flex;
+      .slick-slide {
+        border: solid 1px #E5E4E4;
+        box-shadow: none;
+        position: relative;
+        margin: 30px 25px 100px;
+        border-radius: 10px;
+        .tab-slider-item{
+          .zoom{
+            position: relative;
+            img {
+              &:first-child{
+                display: block;
+                width: 100%;}
+            }
+            .triangle-container {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 0;
+              height: 0;
+              border-left: 60px solid #007bff; /* Blue color */
+              border-bottom: 60px solid transparent;
+              /* Star icon positioning */
+              img {
+                position: absolute;
+                top: 10px;
+                left: -50px;
+                width: 16px;
+                height: 16px;
+              }
+            }
+            .field-price-tag {
+              position: absolute;
+              top: 20px;
+              right: 20px;
+              background-color: rgba(0, 0, 0, 0.7);
+              color: #fff;
+              padding: 5px 10px;
+              border-radius: 4px;
+              font-size: 20px;
+              z-index: 2;
+              border: solid 1px;
+            }
+          }
+          .card-description{
+            .slider-item-tag {
+              font-size: 25px;
+              margin: 0px 45px;
+              /* font-style: unset; */
+              font-family: ui-sans-serif;
+              font-weight: bold;
+              color: #575757;
+              padding-bottom: 15px;
+              @include mquery(mobile){
+                font-size: 22px;
+              }
+            }
+            .schedule {
+              padding: 20px 45px;
+              .rate{
+                display: flex;
+                padding-bottom: 10px;
+                color: #8e8d8d;
+                font-size: 20px;
+                img {
+                  padding-right: 20px;
+                  height: 20px;
+                }
+              }
+            }
+            .icon-container {
+              display: flex;
+              justify-content: space-evenly; /* Distribute space evenly */
+              align-items: center;
+              padding: 10px 0;
+              border-top: 1px solid #eaeaea;
+              @include mquery(mobile){
+                display: flex !important;
+              }
+              .icon {
+                flex: 0.5;
+                text-align: center;
+                padding: 10px 0;
+                position: relative;
+                border-right: solid 1px #eaeaea;
+                border-width: 2px;
+                img {
+                  width: 24px;
+                  height: 24px;
+                  opacity: 0.5; /* Light grey color */
+                  display: block;
+                  margin: 0 auto;
+                  &:hover{
+                    filter: brightness(0) saturate(100%) invert(47%) sepia(87%) saturate(1496%) hue-rotate(178deg) brightness(97%) contrast(98%);
+                    opacity: 1;
+                  }
+                }
+              }
+              .view-more {
+                flex: 1;
+                text-align: center;
+                color: #007bff; 
+                font-weight: bold;
+                text-decoration: none;
+                padding: 10px 0;
+                font-size: 20px;
+                &:hover{
+                  color: #024c9c;
+                }
+              }
+            }
+          }
+        }
+    }
+  }
+    
+  }
+}

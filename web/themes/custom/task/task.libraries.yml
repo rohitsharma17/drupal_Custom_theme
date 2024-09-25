@@ -1,0 +1,17 @@
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      css/style.css: {}
+      libs/slick/css/slick.css: {}
+  js:
+    libs/jquery/jquery.min.js: {}
+    libs/slick/js/slick.min.js: {}
+    js/custom.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.ui
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.cookie

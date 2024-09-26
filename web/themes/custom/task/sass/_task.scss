@@ -12,6 +12,9 @@ ul {
   @include mquery(mobile){
     display: none;
   }
+  img{
+    width: 100%;
+  }
 }
 .field--name-field-mobile-banner{
   @include mquery(mobile){
@@ -54,17 +57,7 @@ ul {
   }
   .item-list {
     border-bottom: 2px solid #007bff;
-    /*display: flex;
-    justify-content: center; 
-    margin: 0 auto;
-    width: 100%; 
-    max-width: 1700px; */
     .cat-tabs {
-      /*display: flex; /* Align tabs horizontally 
-      justify-content: space-between;
-      list-style: none; /* Remove bullet points 
-      padding: 0;
-      margin: 0;*/
       display: flex;
       flex-wrap: wrap;
       position: relative;
@@ -75,7 +68,6 @@ ul {
         padding-right: 0 !important;
       }
       li {
-        /*margin-right: 20px; /* Space between tabs */
         font-size: 28px;
         flex: 1;
         text-align: center;
@@ -115,12 +107,6 @@ ul {
           }
         }
         a {
-          /*text-decoration: none;
-          font-size: 28px;
-          color: #007bff;
-          padding: 10px 20px;
-          display: inline-block;
-          position: relative;*/
           padding: 30px 10px 25px;
           color: #007bff;
           text-decoration: none;

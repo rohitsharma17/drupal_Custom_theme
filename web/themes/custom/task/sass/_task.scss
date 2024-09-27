@@ -67,7 +67,13 @@ ul {
         padding-left: 0 !important;
         padding-right: 0 !important;
       }
+      @include mquery(landscapeMode){
+        flex-wrap: unset;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
       li {
+        position: relative;
         font-size: 28px;
         flex: 1;
         text-align: center;
@@ -77,6 +83,10 @@ ul {
         padding-bottom: 0;
         white-space: nowrap;
         @include mquery(mobile){
+          white-space: unset;
+          font-size: 18px;
+        }
+        @include mquery(landscapeMode){
           white-space: unset;
           font-size: 18px;
         }
@@ -90,20 +100,15 @@ ul {
             color: #333; 
             position: relative;
           }
-          &:after {
+          &:before {
             content: "";
             position: absolute;
-            top: 150%; 
-            left: 50%; 
+            bottom: -26px; /* Adjusts the space between the underline and the triangle */
+            left: 50%;
             transform: translateX(-50%);
-            width: 0;
-            height: 0;
             border-left: 10px solid transparent;
             border-right: 10px solid transparent;
-            border-top: 10px solid #007bff; 
-            @include mquery(mobile){
-              top: 142% !important;
-            }
+            border-top: 10px solid #007bff; /* Blue triangle */
           }
         }
         a {
@@ -140,7 +145,7 @@ ul {
       text-indent: -9999px;
       position: absolute;
       top: 40%;
-      left: -50px;
+      left: -20px;
       z-index: 2;
       border: none !important;
       cursor: pointer;
@@ -148,6 +153,9 @@ ul {
         opacity: 0.5;
       }
       @include mquery(mobile){
+        display: none !important;
+      }
+      @include mquery(landscapeMode){
         display: none !important;
       }
     }
@@ -160,7 +168,7 @@ ul {
       text-indent: -9999px;
       position: absolute;
       top: 40%;
-      right: -50px;
+      right: -20px;
       z-index: 2;
       border: none !important;
       cursor: pointer;
@@ -170,22 +178,31 @@ ul {
       @include mquery(mobile){
         display: none !important;
       }
+      @include mquery(landscapeMode){
+        display: none !important;
+      }
     }
     .slick-track {
       display: flex;
       .slick-slide {
-        border: solid 1px #E5E4E4;
-        box-shadow: none;
-        position: relative;
         margin: 30px 25px 100px;
-        border-radius: 10px;
         .tab-slider-item{
+          position: relative;
+          border: 1px solid #e0e0e0;
+          box-shadow: none;
+          border-radius: 10px;
+          overflow: hidden;
           .zoom{
-            position: relative;
             img {
-              &:first-child{
-                display: block;
-                width: 100%;}
+                width: 100%;
+                height: 270px; /* Adjust image height */
+                object-fit: cover; /* Keeps image proportions */
+                @include mquery(landscapeMode){
+                  height: 220px !important;
+                }
+            }
+            img.hovered{
+              height: 205px !important;
             }
             .triangle-container {
               position: absolute;
@@ -201,7 +218,7 @@ ul {
                 top: 10px;
                 left: -50px;
                 width: 16px;
-                height: 16px;
+                height: 16px !important;
               }
             }
             .field-price-tag {
@@ -237,6 +254,9 @@ ul {
                 padding-bottom: 10px;
                 color: #8e8d8d;
                 font-size: 20px;
+                @include mquery(mobile){
+                  font-size: 15px !important;
+                }
                 img {
                   padding-right: 20px;
                   height: 20px;
@@ -247,9 +267,15 @@ ul {
               display: flex;
               justify-content: space-evenly; /* Distribute space evenly */
               align-items: center;
-              padding: 10px 0;
               border-top: 1px solid #eaeaea;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              padding: 10px;
               @include mquery(mobile){
+                display: flex !important;
+              }
+              @include mquery(landscapeMode){
                 display: flex !important;
               }
               .icon {

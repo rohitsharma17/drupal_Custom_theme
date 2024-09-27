@@ -1,5 +1,5 @@
 (function ($, Drupal, window, document, undefined) {
-
+//Drupal behaviour
 Drupal.behaviors.custom = {
     attach: function (context, settings) {   
 
@@ -10,10 +10,13 @@ Drupal.behaviors.custom = {
 
         $(ele).on('click', function (e) {
           e.preventDefault();
+          //for removing class from the li
           $('.cat-tabs li').removeClass('active');
+          //for adding class on current li
           $(this).parent().addClass('active');
-          //$('.tab-slider-center').slick('setPosition', 0);
+          //hiding all view photos-slider-block div 
           jQuery(e.target).parents('.view-header').siblings('.view-content').find('.photos-slider-block').hide();
+          //this will show the photos-slider-block div
           jQuery(e.target).parents('.view-header').siblings('.view-content').find('.photos-slider-block:nth-child(' + (index + 1) + ')').show();
           jQuery('.tab-slider-center').slick('setPosition', 0);
           equalheight('.eq-height');
@@ -28,10 +31,17 @@ Drupal.behaviors.custom = {
             slidesToScroll: 1,
             dots: false,
             responsive: [{
-              breakpoint: 1199,
+              breakpoint: 1300,
               settings: {
                   slidesToShow: 2,
-                  slidesToScroll: 1
+                  dots: false,
+              }
+          },  
+          {
+              breakpoint: 1060,
+              settings: {
+                  slidesToShow: 1,
+                  dots: true,
               }
           },
           {
@@ -64,9 +74,11 @@ Drupal.behaviors.custom = {
           // When hovering over the card, show the icon container
           $('.tab-slider-item').hover(
             function() {
+              $(this).find('.zoom img:first').addClass('hovered');
               $(this).find('.icon-container').show(); // Show the container on hover
             }, 
             function() {
+              $(this).find('.zoom img:first').removeClass('hovered');
               $(this).find('.icon-container').hide(); // Hide the container when not hovering
             }
           );
